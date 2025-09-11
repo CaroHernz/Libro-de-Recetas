@@ -1,0 +1,75 @@
+/* Estilos globales para transiciones */
+.page-flip-enter-active,
+.page-flip-leave-active {
+  transition: opacity 0.5s, transform 0.5s;
+}
+
+.page-flip-enter-from,
+.page-flip-leave-to {
+  opacity: 0;
+  transform: translateX(30px);
+}
+
+/* Estilos para las transiciones de recetas */
+.page-flip-next-enter-active,
+.page-flip-next-leave-active,
+.page-flip-prev-enter-active,
+.page-flip-prev-leave-active {
+  transition: all 0.8s ease;
+  position: absolute;
+  width: 100%;
+  
+}
+
+.page-flip-next-enter-from {
+  opacity: 0;
+  transform: translateX(30px) rotateY(20deg);
+}
+
+.page-flip-next-enter-to,
+.page-flip-next-leave-from {
+  opacity: 1;
+  transform: translateX(0) rotateY(0deg);
+}
+.page-flip-next-leave-to {
+  opacity: 0;
+  transform: translateX(-30px) rotateY(-20deg);
+}
+
+.page-flip-prev-enter-from {
+  opacity: 0;
+  transform: translateX(-30px) rotateY(-20deg);
+}
+
+.page-flip-prev-leave-to {
+  opacity: 0;
+  transform: translateX(30px) rotateY(20deg);
+}
+
+.app-container {
+  min-height: calc(100vh - 120px);
+  padding-top: 20px;
+}
+
+/* Asegurar que Bootstrap funcione correctamente */
+.navbar-nav .nav-link.router-link-active {
+  color: rgba(255, 255, 255, 0.9) !important;
+}
+
+.dropdown-item.router-link-active {
+  background-color: #0d6efd;
+  color: white;
+}
+
+/* Estilos responsivos */
+@media (min-width: 768px) {
+  .receta-contenido {
+    padding: 0 0 0 20px;
+  }
+}
+
+@media (max-width: 767px) {
+  .receta-contenido {
+    padding: 20px 0;
+  }
+}
