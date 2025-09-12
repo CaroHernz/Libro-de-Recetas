@@ -1,69 +1,84 @@
 <template>
+    <div>
+        <div v-if="!$route.params.name">
     <header class="profile-header text-center">
         <div class="container">
             <h1 class="display-5 fw-bold">Nuestros Autores</h1>
             <p class="lead">Conoce a los chefs y nutricionistas detrás de nuestras deliciosas recetas</p>
         </div>
     </header>
+    <div class="row m-5">
+        <div v-for="autor in autores" :key="autor.id" class="col-md-6 col-lg-4 mb-4">
+            <div class="author-card pt-4 text-center h-100 shadow">
+                <router-link :to="'/autor/' + slugify(autor.nombre)" class="text-decoration-none">
+                    <img :src="autor.imagen" :alt="autor.nombre" class="rounded-circle profile-img mb-3">
+                    <h3 class="mb-1 text-danger">{{ autor.nombre }}</h3>
+                    <p class="text-muted mb-2">{{ autor.profesion }}</p>
+                    <span class="btn btn-outline-secondary border">Ver perfil</span>
+                </router-link>
+            </div>
+        </div>
+    </div>
+    </div>
 
-    <div class="row px-5">
+    <div v-else>
+        <header class="profile-header text-center">
+        <div class="container">
+            <h1 class="display-5 fw-bold">Nuestros Autores</h1>
+            <p class="lead">Conoce a los chefs y nutricionistas detrás de nuestras deliciosas recetas</p>
+        </div>
+    </header>
+
+    <div class="container mb-5" v-if="autor">
+    <div class="row">
             <!-- Columna izquierda: Información del autor -->
             <div class="col-lg-4">
-                <div class="author-card p-4 text-center mb-4">
-                    <img src="https://avatars.githubusercontent.com/u/118030389?v=4" alt="Carolina Hernández" class="rounded-circle profile-img mb-3">
-                    <h3 class="mb-1">Carolina Hernández</h3>
-                    <p class="text-muted mb-2">Nutricionista</p>
+                <div class="author-card shadow p-4 text-center mb-4">
+                    <img :src="autor.imagen" :alt="autor.nombre" class="rounded-circle profile-img mb-3">
+                    <h3 class="mb-1">{{ autor.nombre }}</h3>
+                    <p class="text-muted mb-2">{{ autor.profesion }}</p>
                     
                     <div class="d-flex justify-content-center mb-3">
-                        <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
-                        <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
-                        <a href="#" class="social-icon"><i class="fas fa-envelope"></i></a>
+                        <a v-for="(red,index) in autor.redesSociales" :key="index" :href="red.url" class="social-icon">
+                            <i :class="red.icono"></i>
+                        </a>
                     </div>
                     
-                    <p class="mb-3"><i class="fas fa-map-marker-alt me-2 text-secondary"></i> Rancagua, Chile</p>
+                    <p class="mb-3"><i class="fas fa-map-marker-alt me-2 text-secondary"></i> {{ autor.ubicacion }}</p>
                 </div>
                 
                 <div class="stats-box">
                     <div class="row text-center">
                         <div class="col-4">
-                            <div class="stats-number">24</div>
+                            <div class="stats-number">{{ autor.recetas }}</div>
                             <div class="stats-label">Recetas</div>
                         </div>
                         <div class="col-4">
-                            <div class="stats-number">10</div>
+                            <div class="stats-number">{{ autor.experiencia }}</div>
                             <div class="stats-label">Años Exp.</div>
                         </div>
                         <div class="col-4">
-                            <div class="stats-number">4.9</div>
+                            <div class="stats-number">{{ autor.valoracion }}</div>
                             <div class="stats-label">Valoración</div>
                         </div>
                     </div>
                 </div>
                 
-                <div class="author-card p-4 mb-4">
+                <div class="author-card p-4 mb-4 shadow">
                     <h5 class="section-title">Especialidades</h5>
                     <div>
-                        <span class="specialty-badge"><i class="fas fa-utensils fa-lg me-1"></i> Cocina Saludable</span>
-                        <span class="specialty-badge"><i class="fas fa-seedling me-1 fa-lg"></i> Vegetariana</span>
-                        <span class="specialty-badge"><i class="fas fa-bread-slice me-1 fa-lg"></i> Repostería</span>
-                        <span class="specialty-badge"><i class="fas fa-fish me-1 fa-lg"></i> Pescados</span>
+                        <span v-for="(especialidad, index) in autor.especialidades" :key="index" class="specialty-badge">
+                            <i :class="especialidad.icono + ' fa-lg me-2'"></i> {{ especialidad.nombre }}
+                        </span>
                     </div>
                 </div>
                 
-                <div class="author-card p-4">
+                <div class="author-card p-4 shadow">
                     <h5 class="section-title">Formación</h5>
                     <ul class="list-unstyled">
-                        <li class="mb-2">
-                            <i class="fas fa-graduation-cap text-primary me-2"></i>
-                            <span>Licenciatura en Nutrición - Universidad de Chile</span>
-                        </li>
-                        <li class="mb-2">
-                            <i class="fas fa-award text-primary me-2"></i>
-                            <span>Diplomado en Gastronomía - Instituto Culinary</span>
-                        </li>
-                        <li>
-                            <i class="fas fa-certificate text-primary me-2"></i>
-                            <span>Especialización en Cocina Plant-Based</span>
+                        <li v-for="(formacion,index) in autor.formacion" :key="index" class="mb-2">
+                            <i :class="formacion.icono + ' text-success me-2'"></i>
+                            <span> {{ formacion.titulo }}</span>
                         </li>
                     </ul>
                 </div>
@@ -71,106 +86,111 @@
             
             <!-- Columna derecha: Biografía y recetas -->
             <div class="col-lg-8">
-                <div class="author-card p-4 mb-4">
+                <div class="author-card shadow p-4 mb-4">
                     <h5 class="section-title">Biografía</h5>
-                    <p>¡Hola a todos! Como autora de estas recetas, quería expresar mi más sincero agradecimiento por llevar mis creaciones culinarias a sus hogares.</p>
-                    
-                    <p>Cada plato ha sido diseñado con amor, equilibrio nutricional y el deseo de hacer sus momentos especiales aún más deliciosos. La cocina es mi pasión y poder compartirla con ustedes es un regalo.</p>
-                    
-                    <p>Mi enfoque culinario combina técnicas tradicionales con ingredientes modernos, siempre buscando el equilibrio perfecto entre sabor y nutrición. Creo firmemente que comer saludable no tiene que ser aburrido ni restrictivo.</p>
-                                        
+                    <p v-for="(parrafo, index) in autor.biografia" :key="index">{{ parrafo }}</p>             
                     <div class="text-end mt-4">
-                        <span class="signature">Carolina Hernández</span>
-                        <div><small class="text-muted">Nutricionista especializada en gastronomía</small></div>
+                        <span class="signature">{{ autor.nombre }}</span>
+                        <div><small class="text-muted">{{ autor.profesionEspecializada }}</small></div>
                     </div>
                 </div>
                 
                 <div class="d-flex justify-content-between align-items-center mb-4">
                     <h5 class="section-title mb-0">Recetas Destacadas</h5>
-                    <a href="#" class="text-decoration-none text-primary">Ver todas <i class="fas fa-arrow-right ms-1"></i></a>
+                    <router-link :to="`/recetas/autor/${slugify(autor.nombre)}`" class="text-decoration-none text-success">Ver todas <i class="fas fa-arrow-right ms-1"></i></router-link>
                 </div>
                 
                 <div class="row">
-                    <!-- Receta 1 -->
-                    <div class="col-md-6 mb-4">
+                    <!-- Recetas destacadas -->
+                    <div v-for="receta in autor.recetasDestacadas" :key="receta.id" class="col-md-6 mb-4">
                         <div class="recipe-card">
-                            <img src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="Receta" class="recipe-img">
+                            <img :src="receta.imagen" :alt="receta.titulo" class="recipe-img">
                             <div class="p-3">
                                 <div class="d-flex justify-content-between align-items-center mb-2">
-                                    <span class="badge-custom">Desayuno</span>
-                                    <small class="text-muted"><i class="fas fa-clock me-1"></i> 20 min</small>
+                                    <span class="badge-custom">{{ receta.categoria }}</span>
+                                    <small class="text-muted"><i class="fas fa-clock me-1"></i> {{ receta.tiempo }}</small>
                                 </div>
-                                <h6 class="mb-1">Avocado Toast con Huevo Poach</h6>
+                                <h6 class="mb-1">{{ receta.titulo }}</h6>
                                 <div class="d-flex justify-content-between mt-3">
-                                    <small><i class="fas fa-star text-warning me-1"></i> 4.9 (128)</small>
-                                    <small><i class="fas fa-heart text-danger me-1"></i> 245</small>
+                                    <small><i class="fas fa-star text-warning me-1"></i> {{ receta.valoracion }} ({{ receta.resenas }})</small>
+                                    <small><i class="fas fa-heart text-danger me-1"></i> {{ receta.likes }}</small>
                                 </div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Receta 2 -->
-                    <div class="col-md-6 mb-4">
-                        <div class="recipe-card">
-                            <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="Receta" class="recipe-img">
-                            <div class="p-3">
-                                <div class="d-flex justify-content-between align-items-center mb-2">
-                                    <span class="badge-custom">Plato Principal</span>
-                                    <small class="text-muted"><i class="fas fa-clock me-1"></i> 35 min</small>
-                                </div>
-                                <h6 class="mb-1">Pasta Integral con Vegetales</h6>
-                                <div class="d-flex justify-content-between mt-3">
-                                    <small><i class="fas fa-star text-warning me-1"></i> 4.8 (96)</small>
-                                    <small><i class="fas fa-heart text-danger me-1"></i> 187</small>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Receta 3 -->
-                    <div class="col-md-6 mb-4">
-                        <div class="recipe-card">
-                            <img src="https://images.unsplash.com/photo-1563729784474-d77dbb933a9e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="Receta" class="recipe-img">
-                            <div class="p-3">
-                                <div class="d-flex justify-content-between align-items-center mb-2">
-                                    <span class="badge-custom">Postre</span>
-                                    <small class="text-muted"><i class="fas fa-clock me-1"></i> 50 min</small>
-                                </div>
-                                <h6 class="mb-1">Cheesecake de Frutos Rojos</h6>
-                                <div class="d-flex justify-content-between mt-3">
-                                    <small><i class="fas fa-star text-warning me-1"></i> 5.0 (204)</small>
-                                    <small><i class="fas fa-heart text-danger me-1"></i> 312</small>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Receta 4 -->
-                    <div class="col-md-6 mb-4">
-                        <div class="recipe-card">
-                            <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="Receta" class="recipe-img">
-                            <div class="p-3">
-                                <div class="d-flex justify-content-between align-items-center mb-2">
-                                    <span class="badge-custom">Aperitivo</span>
-                                    <small class="text-muted"><i class="fas fa-clock me-1"></i> 25 min</small>
-                                </div>
-                                <h6 class="mb-1">Bruschetta de Tomate y Albahaca</h6>
-                                <div class="d-flex justify-content-between mt-3">
-                                    <small><i class="fas fa-star text-warning me-1"></i> 4.7 (87)</small>
-                                    <small><i class="fas fa-heart text-danger me-1"></i> 156</small>
+                                <div class="text-center mt-3">
+                                    <router-link :to="`/categorias/${receta.categoria.toLowerCase()}/receta/${receta.id}`" class="btn btn-sm btn-secondary">Ver receta</router-link>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>x
+        </div>
+        </div>
+    </div>
+</div>
 </template>
+<script>
+import { autores } from '../data/autores'
+export default {
+    name:'PerfilAutor',
+    data() {
+        return {
+            autor: null,
+            autorSeleccionado:null,
+            autores:autores
+        }
+    },
+    mounted(){
+        if(this.$route.params.name){
+            this.cargarAutorNombre(this.$route.params.name);
+            const autorEncontrado = this.autores.find(a => this.slugify(a.nombre) === this.$route.params.name);
+            if(autorEncontrado) {
+                this.autorSeleccionado = autorEncontrado
+            }
+        }
+    },
+    methods: {
+        cargarAutorNombre(nombreSlug){
+            const autorEncontrado = this.autores.find(a => this.slugify(a.nombre)=== nombreSlug);
+            if (autorEncontrado) {
+                this.autor = autorEncontrado;
+            } else {
+                this.$router.push('/autor')
+            }
+        },
+        cambiarAutor(){
+            if(this.autorSeleccionado){
+                this.$router.push({path:'/autor/' + this.slugify(this.autorSeleccionado.nombre)
+            });
+            }
+        },
+        slugify(text) {
+            return text
+                .toString()
+                .toLowerCase()
+                .normalize('NFD')
+                .replace(/[\u0300-\u036f]/g, '') // Eliminar acentos
+                .replace(/\s+/g, '-')           // Reemplazar espacios con -
+                .replace(/[^\w\-]+/g, '')       // Eliminar caracteres no alfanuméricos
+                .replace(/\-\-+/g, '-')         // Reemplazar múltiples - con uno solo
+                .replace(/^-+/, '')             // Eliminar - del inicio
+                .replace(/-+$/, '');            // Eliminar - del final
+        }
+    },
+    watch: {
+        '$route.params.name'(newName) {
+            if(newName) {
+                this.cargarAutorNombre(newName)
+            } else{
+                this.autor = null
+            }
+        }
+    }
+}
+</script>
 <style scoped>
 .profile-header {
     background: linear-gradient(135deg, #fff6e6 0%, #ffe6e6 100%);
     padding: 2rem 0;
-    border-radius: 0 0 20px 20px;
     margin-bottom: 2rem;
     }
 .profile-card {
@@ -183,7 +203,6 @@
 .author-card {
             background: white;
             border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
             overflow: hidden;
             margin-bottom: 2rem;
             transition: transform 0.3s ease;

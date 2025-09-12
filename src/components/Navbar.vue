@@ -21,7 +21,7 @@
             </ul>
           </div>
           <div class="nav-item">
-            <router-link class="nav-link" to="/autor/:nombre" v-tooltip="'Autores'">
+            <router-link class="nav-link" to="/autor/" v-tooltip="'Autores'">
               <i class="fas fa-user fa-lg"></i>
             </router-link>
           </div>

@@ -32,7 +32,7 @@ export const recetas = [
             instrucciones: 'Coloca todos los ingredientes en una licuadora. Procesa a alta velocidad hasta obtener una consistencia suave y homogénea. Sirve inmediatamente.',
             imagen: 'https://www.calidadpascual.com/wp-content/uploads/2022/10/c4cc16012490b66d5a8655338e3f5023.jpeg',
             categoria: 'desayuno',
-            autor:'Nutri Carolina Hernández'
+            autor:'Chef María González'
         },
         {
             id:3,
@@ -67,7 +67,7 @@ export const recetas = [
             instrucciones: 'En un bol grande, mezcla la harina, el azúcar, la levadura y la sal. En otro bol, combina la leche, el huevo, la mantequilla derretida y la vainilla. Agrega la mezcla líquida a la de los ingredientes secos y mezcla hasta que estén justo combinados. Vierte la masa en una waflera caliente y cocina hasta que estén dorados y crujientes.',
             imagen: 'https://www.vanillapura.com/cdn/shop/articles/shutterstock_1530082709_1.jpg?v=1620064563&width=1024',
             categoria: 'desayuno',
-            autor:'Nutri Carolina Hernández'
+            autor:'Nutri Javiera Zepeda'
         },
         {
             id:5,
@@ -83,7 +83,7 @@ export const recetas = [
             instrucciones: 'En una olla pequeña, combina la avena, el agua o la leche y la sal. Calienta a fuego medio-alto y lleva a ebullición. Reduce el fuego a bajo y cocina, revolviendo ocasionalmente, durante unos 5-7 minutos o hasta que la avena esté cremosa. Sirve en un bol y decora con frutos rojos y un chorrito de miel.',
             imagen: 'https://recetasexpress.com/wp-content/uploads/2019/08/Porridge-de-avena-con-frutos-rojos.png',
             categoria: 'desayuno',
-            autor:'Nutri Carolina Hernández'
+            autor:'Chef Tomás Torres'
         }
     ]
     },
@@ -104,7 +104,7 @@ export const recetas = [
             instrucciones: 'Corta las pechugas de pollo en filetes y machácalas ligeramente. En un bol, mezcla el jugo de limón, el ajo, el orégano, sal, pimienta y un chorrito de aceite de oliva. Vierte la marinada sobre el pollo y deja reposar por al menos 30 minutos. Calienta una sartén con aceite y cocina el pollo a fuego medio-alto hasta que esté dorado y cocido por completo. Sirve de inmediato.',
             imagen: 'https://comedera.com/wp-content/uploads/sites/9/2022/09/POllo-al-limon-y-hierbasPG_PALCHI191104_01.jpg',
             categoria: 'almuerzo',
-            autor:'Nutri Carolina Hernández'
+            autor:'Chef Tomás Torres'
         },
         {
             id:7,
@@ -141,7 +141,7 @@ export const recetas = [
             instrucciones: 'En una olla, cocina la quinoa con el agua o caldo hasta que esté cocida y el líquido se haya absorbido. Deja enfriar. En un bol grande, combina la quinoa fría con los vegetales picados. Para el aderezo, mezcla el jugo de limón, aceite de oliva, sal y pimienta. Vierte el aderezo sobre la ensalada y mezcla bien.',
             imagen: 'https://www.hola.com/horizon/landscape/170e715f1ab0-ensalada-quinoa-adobe-t.jpg',
             categoria: 'almuerzo',
-            autor:'Nutri Carolina Hernández'
+            autor:'Nutri Javiera Zepeda'
         },
         {
             id:9,
@@ -175,7 +175,7 @@ export const recetas = [
             instrucciones: 'Calienta un wok o una sartén grande con aceite vegetal a fuego alto. Agrega la zanahoria y cocina por unos minutos. Añade los guisantes y el cebollín y saltea por un minuto más. Empuja las verduras hacia un lado de la sartén, vierte el huevo batido en el espacio libre y revuélvelo hasta que se cocine. Agrega el arroz cocido y la salsa de soya y mezcla bien con todos los ingredientes. Cocina hasta que el arroz esté bien caliente. Sirve caliente.',
             imagen: 'https://mandolina.co/wp-content/uploads/2024/06/arroz-con-vegetales-1200x900.jpg',
             categoria: 'almuerzo',
-            autor:'Nutri Carolina Hernández'
+            autor:'Chef Tomás Torres'
         }
     ]
     },
@@ -225,7 +225,7 @@ export const recetas = [
             instrucciones: 'Mezcla los plátanos machacados con la avena. Forma galletas y colócalas en una bandeja para hornear. Hornea a 180°C (350°F) por 15-20 minutos.',
             imagen: 'https://static.bainet.es/clip/158c1de0-a1f0-4d79-be13-33d6c2bef47a_source-aspect-ratio_1600w_0.jpg',
             categoria: 'once',
-            autor:'Nutri Carolina Hernández'
+            autor:'Nutri Javiera Zepeda'
         },
         {
             id:14,
@@ -244,7 +244,7 @@ export const recetas = [
             instrucciones: 'En un bol, mezcla los ingredientes secos. En otro, bate los ingredientes húmedos. Combina ambas mezclas sin batir en exceso. Agrega los arándanos. Vierte la masa en moldes para muffins y hornea a 200°C (400°F) por 20-25 minutos.',
             imagen: 'https://www.haceloconhuevos.com/wp-content/uploads/2022/02/MUFFINS-DE-LIMO%CC%81N-CON-ARA%CC%81NDANOS.jpg',
             categoria: 'once',
-            autor:'Nutri Carolina Hernández'
+            autor:'Chef María González'
         },
         {
             id:15,
@@ -260,7 +260,7 @@ export const recetas = [
             instrucciones: 'Coloca los quesos en una tabla para servir. Acompaña con uvas, rodajas de manzana y galletas saladas.',
             imagen: 'https://frutascharito.es/blog/wp-content/uploads/2022/12/tabla-de-quesos-y-fruta.png',
             categoria: 'once',
-            autor:'Nutri Carolina Hernández'
+            autor:'Chef Tomás Torres'
         }
     ]
     },
@@ -283,7 +283,7 @@ export const recetas = [
             instrucciones: 'En una olla, sofríe la cebolla, las zanahorias y el ajo. Agrega las lentejas lavadas y el caldo o agua. Añade la hoja de laurel y cocina a fuego medio-bajo por 30-40 minutos o hasta que las lentejas estén blandas. Sirve caliente.',
             imagen: 'https://content-cocina.lecturas.com/medio/2018/07/19/lentejas-con-verduras_00000000_240112110243_1200x1200.jpg',
             categoria: 'cena',
-            autor:'Nutri Carolina Hernández'
+            autor:'Nutri Javiera Zepeda'
         },
         {
             id:17,
@@ -336,7 +336,7 @@ export const recetas = [
             instrucciones: 'Corta el zapallo en cubos y cocínalo hasta que esté blando. En una olla, sofríe la cebolla y el jengibre. Agrega el zapallo cocido y el caldo de vegetales. Cocina por unos minutos y luego tritura con una batidora de inmersión hasta que esté suave. Sirve con un toque de crema de leche y especias si deseas.',
             imagen: 'https://es.cravingsjournal.com/wp-content/uploads/2017/08/crema-de-zapallo-y-jengibre-1.jpg',
             categoria: 'cena',
-            autor:'Nutri Carolina Hernández'
+            autor:'Nutri Javiera Zepeda'
         },
         {
             id:20,
@@ -355,7 +355,7 @@ export const recetas = [
             instrucciones: 'Sazona los filetes de pescado con sal, pimienta y pimienta de Cayena. Cocínalos en una sartén con un poco de aceite hasta que estén dorados y cocidos. Desmenúzalos. Para la salsa, mezcla el yogurt con jugo de limón y cilantro. Calienta las tortillas. Rellena cada tortilla con el pescado desmenuzado, col morada y un poco de la salsa de yogurt. Sirve de inmediato.',
             imagen: 'https://chiveria.com.ec/wp-content/uploads/2025/03/Tacos-de-Pescado-con-Salsa-de-Yogur-Griego-Chiveria-1024x719.webp',
             categoria: 'cena',
-            autor:'Nutri Carolina Hernández'
+            autor:'Chef Tomás Zepeda'
         }
     ]
     }

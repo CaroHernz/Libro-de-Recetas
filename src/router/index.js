@@ -71,12 +71,18 @@ const routes = [
       },
     ]
   },     
-  {
-    path: '/autor/:nombre',
-    name: 'PerfilAutor',
+ {
+    path: '/autor',
+    name: 'Autores',
     component: PerfilAutor,
-    props: true
-  }
+    props:{isLista:true}
+ },
+      {
+        path:'/autor/:name',
+        name:'PerfilAutor',
+        component: PerfilAutor,
+        props: true
+      }
 ]
 
 const router = createRouter({
