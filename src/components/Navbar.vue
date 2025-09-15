@@ -1,15 +1,15 @@
 <template>
-  <nav class="navbar navbar-expand custom-navbar">
-    <div class="container-fluid justify-content-center align-items-center">
-      <div class="navbar-nav">
-          <div class="nav-item">
+  <div class="container">
+    <nav class="d-flex flex-wrap justify-content-center align-items-center  border-bottom py-3">
+      <div class="col-12 justify-content-center d-flex text-body-secondary">
+        <div class="nav-item me-5">
             <router-link class="nav-link" to="/" v-tooltip="'Inicio'">
-              <i class="fas fa-home fa-lg me-3"></i>
+              <i class="fas fa-home fa-2x"></i>
             </router-link>
           </div>
-          <div class="nav-item dropdown">
+          <div class="nav-item me-5 dropdown">
             <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown">
-              <i class="fas fa-book-open fa-lg me-3"></i>
+              <i class="fas fa-book-open fa-2x"></i>
             </a>
             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
               <li><router-link class="dropdown-item" to="/categorias/desayuno"><i class="fas fa-utensils me-2"></i>Desayuno</router-link></li>
@@ -22,12 +22,12 @@
           </div>
           <div class="nav-item">
             <router-link class="nav-link" to="/autor/" v-tooltip="'Autores'">
-              <i class="fas fa-user fa-lg"></i>
+              <i class="fas fa-user fa-2x"></i>
             </router-link>
           </div>
       </div>
-    </div> 
-  </nav>
+    </nav>
+  </div>
 </template>
 
 <script>
@@ -46,20 +46,11 @@ export default {
 }
 </script>
 <style scoped>
-.custom-navbar {
-  box-shadow: 0 2px 10px rgba(0,0,0,0.2);
-  background-color: #ff6b6b;
-  padding: 0.5rem 1rem;
-}
 .nav-link {
-  color: rgba(255, 255, 255, 0.9);
   transition: all 0.3s ease;
 }
-.navbar-nav {
-    gap: 1rem;
-}
-.nav-link:hover {
-  color: white !important;
+.nav-link:hover{
+  color: #ffc107 !important;
   transform: translateY(-2px);
 }
 .dropdown-menu {
@@ -75,29 +66,25 @@ export default {
   transition: all 0.2s ease;
 }
 .dropdown-item:hover {
-  background-color: #ff9797;
+  background-color: #ffc107;
   color: white;
   transform: scale(1.02);
 }
 .nav-link.router-link-active,
 .nav-link.router-link-exact-active {
-  color: #ffffff !important; 
+  color: #ffc107 !important; 
   font-weight: 600;
   position: relative;
 }
 .dropdown-item.router-link-active,
 .dropdown-item.router-link-exact-active {
-  background-color: #ff9797 !important;
+  background-color: #ffc107 !important;
   color: white !important;
   font-weight: 600;
 }
 @media (max-width: 576px) {
-  .navbar-brand {
-    font-size: 1.2rem;
-    margin-right: 1rem;
-  }
   .nav-link i {
-    font-size: 1.1rem;
+    font-size: 1.5rem;
   }
 }
 </style>

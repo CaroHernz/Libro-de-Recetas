@@ -1,7 +1,12 @@
 <template>
   <div class="categorias" v-if="esRuta">
-    <div class="container py-5">
-      <h2 class="text-center mb-5">Nuestras Categorías de Recetas</h2>
+    <header class="profile-header text-center">
+        <div class="container">
+            <h1 class="display-5 fw-bold">Descubre un Mundo de Sabores</h1>
+            <p class="lead">Explora nuestras categorías y encuentra la inspiración perfecta para cada momento del día.</p>
+        </div>
+    </header>
+    <div class="container py-3">
       <div class="row">
         <div class="col-md-6 col-lg-3 mb-4" v-for="categoria in categorias" :key="categoria.nombre">
           <div class="card h-100 shadow-sm categoria-card">
@@ -71,6 +76,11 @@ export default {
 }
 </script>
 <style scoped>
+.profile-header {
+    background: linear-gradient(135deg, #fff6e6 0%, #ffe6e6 100%);
+    padding: 2rem 0;
+    margin-bottom: 2rem;
+    }
 .categoria-card {
   position: relative;
   overflow: hidden;
