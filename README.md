@@ -44,6 +44,7 @@ src/
 │   ├── Footer.vue
 │   └── RecipeCard.vue      # Componente para las cards
 ├── data/
+│   ├── autores.js
 │   └── recetas.js
 ├── router/
 │   └── index.js
