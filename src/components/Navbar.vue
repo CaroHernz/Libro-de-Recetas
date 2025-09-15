@@ -12,12 +12,12 @@
               <i class="fas fa-book-open fa-2x"></i>
             </a>
             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <li><router-link class="dropdown-item" to="/categorias"><i class="fas fa-list-alt me-2"></i>Todas las Categorías</router-link></li>
+              <li><hr class="dropdown-divider"></li>
               <li><router-link class="dropdown-item" to="/categorias/desayuno"><i class="fas fa-utensils me-2"></i>Desayuno</router-link></li>
               <li><router-link class="dropdown-item" to="/categorias/almuerzo"><i class="fas fa-utensils me-2"></i>Almuerzo</router-link></li>
               <li><router-link class="dropdown-item" to="/categorias/once"><i class="fas fa-utensils me-2"></i>Once</router-link></li>
               <li><router-link class="dropdown-item" to="/categorias/cena"><i class="fas fa-utensils me-2"></i>Cena</router-link></li>
-              <li><hr class="dropdown-divider"></li>
-              <li><router-link class="dropdown-item" to="/categorias"><i class="fas fa-list-alt me-2"></i>Todas las Categorías</router-link></li>
             </ul>
           </div>
           <div class="nav-item">
